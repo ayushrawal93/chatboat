@@ -277,7 +277,7 @@
         if (b.t === "gap") return;
         if (b.t === "h") {
           body += p(rr(b.runs, { b: true, sz: 26, c: "1E1B4B" }),
-            '<w:keepNext/><w:shd w:val="clear" w:color="auto" w:fill="E0E7FF"/><w:spacing w:before="240" w:after="100"/><w:ind w:left="60" w:right="60"/>');
+            '<w:keepNext/><w:spacing w:before="240" w:after="100"/>');
         } else if (b.t === "li") {
           body += p(r(b.mark) + "<w:r><w:tab/></w:r>" + rr(b.runs),
             '<w:spacing w:after="80" w:line="290" w:lineRule="auto"/><w:ind w:left="540" w:hanging="300"/>');
@@ -375,7 +375,7 @@
       y += 18;
       blocks(text).forEach(function (b) {
         if (b.t === "gap") { y += 4; return; }
-        if (b.t === "h") { y += 12; flow(b.runs, 13, 19, 0, DEEP, "", "0.878 0.906 0.996"); y += 5; }
+        if (b.t === "h") { y += 12; flow(b.runs, 13, 19, 0, DEEP); y += 5; }
         else if (b.t === "li") {
           flow(b.runs, 11, 16, 18, INK, L(b.mark));
           y += 3;
@@ -426,7 +426,7 @@
       var doc =
         '<!doctype html><meta charset="utf-8"><title>' + esc(fileBase(question)) + "</title><style>" +
         "body{font:14px/1.6 Arial,'Noto Sans',sans-serif;color:#1f2937;margin:0;padding:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}h1{font-size:22px;color:#4f46e5;border-bottom:2px solid #c7d2fe;padding-bottom:8px}" +
-        "h3{color:#1e1b4b;background:#e0e7ff;padding:5px 10px;border-radius:4px;margin:18px 0 8px;font-size:15px}p{margin:0 0 9px}.li{padding-left:22px;position:relative}.li span{position:absolute;left:4px}" +
+        "h3{color:#1e1b4b;background:none;margin:18px 0 8px;font-size:15px}p{margin:0 0 9px}.li{padding-left:22px;position:relative}.li span{position:absolute;left:4px}" +
         "</style><h1>" + esc(titleOf(question)) + "</h1>" + h;
       var f = document.createElement("iframe");
       f.setAttribute("aria-hidden", "true");

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Rebuilds the chat composer <style> in index.html (not the markup)
+Rebuilds the chat composer block in index.html (its <style> and markup)
 from css/chatbar.css. Run after editing css/chatbar.css:
 
     python3 build-chatbar.py
@@ -59,11 +59,9 @@ html = open(INDEX, encoding="utf-8").read()
 pattern = re.compile(r"<!-- Chat bar \(below navbar\) -->.*?(?=<!-- =+\s*\n\s*HERO)", re.S)
 if not pattern.search(html):
     sys.exit("Could not find the chat bar block in index.html")
-# Only the <style> is rebuilt. The chat box markup lives inside the hero section of index.html;
-# inserting MARKUP here as well would show a second chat box above the hero.
-block = "<!-- Chat bar (below navbar) -->\n<style>" + minify(open(CSS, encoding="utf-8").read()) + "</style>\n"
+block = "<!-- Chat bar (below navbar) -->\n<style>" + minify(open(CSS, encoding="utf-8").read()) + "</style>\n" + MARKUP
 html = pattern.sub(lambda m: block, html, count=1)
-html = re.sub(r"js/chat-widget\.js\?v=\w+", "js/chat-widget.js?v=20261005", html)
+html = re.sub(r"js/chat-widget\.js\?v=\w+", "js/chat-widget.js?v=20260930b", html)
 open(INDEX, "w", encoding="utf-8").write(html)
 
 for src in (INDEX, "js/chat-widget.js"):

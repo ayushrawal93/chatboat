@@ -113,7 +113,6 @@ Every assistant answer has three buttons: **Copy**, **PDF** and **Word** (.docx)
 - Error messages ("something went wrong") do not show these buttons.
 
 ### Update: loader, plain-text answers, exports, monthly plan
-- **Note:** the chat box markup lives in the hero section of `index.html`; `build-chatbar.py` only refreshes its styles, so there is always exactly one chat box.
 - **Loader:** the "working on it" icon is now a plain orbit ring (`.ah-cb-orb` in `css/chatbar.css`, built in
   `addThinking()` in `js/chat-widget.js`). The old starburst is gone. Run `python3 build-chatbar.py` after CSS edits.
 - **Plain text:** the model is told not to use markdown, `tidyReply()` in `backend/services/chatService.js` cleans the
